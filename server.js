@@ -23,10 +23,10 @@ const options = {
 const geocoder = NodeGeocoder(options);
 
 app.use(express.json())
-app.use('/', express.static(path.join(__dirname, "client")));
+app.use('/', express.static(path.join(__dirname, "client", "build")));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/index.html'))
+    res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 
 server.listen(process.env.PORT || 3000);
@@ -74,7 +74,7 @@ function massageAddressArray(array) {
         const finalAddressArray = newAddressArray.map(addressObj=> {
         return new MasterAddress(addressObj) 
         })
-        console.log('finalAddressArray :', finalAddressArray)
+        //console.log('finalAddressArray :', finalAddressArray)
         return finalAddressArray
       })  
   })
@@ -100,7 +100,7 @@ class MasterAddress {
 //then, find a way to generate random addresses on a map upon refresh or something
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/index.html'))
+    res.sendFile(path.join(__dirname + '/client/build/index.html'))
   });
 
   //small change
