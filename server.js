@@ -1,5 +1,4 @@
 
-require("dotenv").config(); 
 
 
 const express = require('express')
@@ -11,6 +10,8 @@ const res = require('express/lib/response');
 const server = http.createServer(app);
 const NodeGeocoder = require('node-geocoder'); 
 const { Http2ServerRequest } = require('http2');
+
+require("dotenv").config(); 
 
 const options = {
   provider: 'google',
